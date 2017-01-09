@@ -1,6 +1,6 @@
 [Core]
 Name = Text Local Logging
-Module = logging
+Module = Logging
 
 [Documentation]
 Author = Mr Snow

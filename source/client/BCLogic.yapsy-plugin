@@ -1,6 +1,6 @@
 [Core]
 Name = BC Logic
-Module = bc_logic
+Module = BCLogic
 
 [Documentation]
 Author = Mr Snow

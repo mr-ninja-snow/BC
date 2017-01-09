@@ -2,8 +2,8 @@
 
 from yapsy.PluginManager import PluginManager
 
-from common.log_plg.i_log_plg import ILogPlugin
-from common.logic_plg import ILogicPlugin
+from common.log_plg.ILogPlg import ILogPlugin
+from common.LogicPlg import ILogicPlugin
 
 def main():
     # Load the plugins from the plugin directory.
