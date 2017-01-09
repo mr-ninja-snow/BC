@@ -1,0 +1,9 @@
+[Core]
+Name = Text Local Logging
+Module = logging
+
+[Documentation]
+Author = Mr Snow
+Version = 0.1
+Website = 
+Description = a plugin for local logging

@@ -1,0 +1,9 @@
+[Core]
+Name = BC Logic
+Module = bc_logic
+
+[Documentation]
+Author = Mr Snow
+Version = 0.1
+Website = 
+Description = a plugin for the BC logic
