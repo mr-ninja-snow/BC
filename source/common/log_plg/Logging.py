@@ -28,9 +28,6 @@ class Logging(ILogPlugin):
 
 		self.log(self.get_name(), Logging.LOG_INFO_MESSAGE_REGISTER["id"], [module_name])
 
-		# print("register module messages")
-
-	# def log(self, message_level, module_name, message_index):
 	def log(self, module_name, message_index, extra_args = []):
 		import datetime
 		import time
@@ -57,7 +54,7 @@ class Logging(ILogPlugin):
 				msg = re.sub(r"%%", arg, msg, 1)
 			log_line += msg
 		else:
-			log_line += self.__plugin_message_dict[module_name][message_index]
+			log_line += self.__plugin_message_dict[module_name][message_index]['text']
 
 
 		if Logging.__EXEC_MODE != "Local debug":

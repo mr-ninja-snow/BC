@@ -14,14 +14,11 @@ class ILogicPlugin(IBasePlugin):
 	LOG_INFO_MESSAGE_FINISH = { "text": "the plugin finished executing", "id" : -1}
 
 	def init(self):
-
 		self.register_log_messages()
+		self.log(ILogicPlugin.LOG_INFO_MESSAGE_INIT['id'])
 
-		# Trigger 'some action' from the "Visualization" plugins
-		# print(self._plugin_manager.getPluginByName('Text Local Logging', 'Logging').plugin_object)
-		# for pluginInfo in manager.getPluginsOfCategory("Logging"):
-		#     pluginInfo.plugin_object.register_module_messages("", "")
-		# .getPluginByName()
+	def log(self, msg_id):
+		self.__logger.log(self.get_name(), msg_id)
 
 	def register_log_messages(self):
 		self._log_messages = list()
@@ -37,13 +34,14 @@ class ILogicPlugin(IBasePlugin):
 		self._log_messages.append({"text": ILogicPlugin.LOG_INFO_MESSAGE_FINISH["text"], "level": MessageLevels.INFO})
 		ILogicPlugin.LOG_INFO_MESSAGE_FINISH["id"] = len(self._log_messages) - 1
 
-		self._plugin_manager.getPluginByName('Text Local Logging', 'Logging').plugin_object.register_module_messages(self.get_name(), self._log_messages)
+		self.__logger = self._plugin_manager.getPluginByName('Text Local Logging', 'Logging').plugin_object
+		self.__logger.register_module_messages(self.get_name(), self._log_messages)
 
 	def start(self):
-		pass
+		self.log(ILogicPlugin.LOG_INFO_MESSAGE_START['id'])
 
 	def stop(self):
-		pass
+		self.log(ILogicPlugin.LOG_INFO_MESSAGE_STOPED['id'])
 
-	def finish(self):
-		pass
+	def fini(self):
+		self.log(ILogicPlugin.LOG_INFO_MESSAGE_FINISH['id'])
